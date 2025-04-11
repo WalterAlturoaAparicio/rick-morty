@@ -6,7 +6,10 @@
   "private": "true",
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "dev": "tsx watch src/app.ts"
+    "dev": "tsx watch src/app.ts",
+    "db:migrate": "sequelize-cli db:migrate",
+    "migrate:undo": "sequelize-cli db:migrate:undo",
+    "db:seed": "sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",
@@ -19,16 +22,21 @@
     "graphql-yoga": "^5.13.3",
     "pg": "^8.14.1",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.37.7"
+    "redis": "^4.7.0",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.7",
+    "sequelize-typescript": "^2.1.6"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.0",
+    "@types/validator": "^13.12.3",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.1",
     "prettier": "^3.5.3",
+    "sequelize-cli": "^6.6.2",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3"

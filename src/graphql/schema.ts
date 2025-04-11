@@ -2,7 +2,16 @@ import { buildSchema } from 'graphql'
 
 export const schema = buildSchema(`
   type Character {
-    id: Int
+    id: Int!
+    name: String!
+    status: String
+    species: String
+    gender: String
+    origin: String
+    image: String
+  }
+
+  input CharacterFilter {
     name: String
     status: String
     species: String
@@ -11,6 +20,6 @@ export const schema = buildSchema(`
   }
 
   type Query {
-    characters: [Character]
+    characters(filter: CharacterFilter): [Character]
   }
 `)
