@@ -1,5 +1,5 @@
 export function MeasureExecutionTime(
-  target: any,
+  _target: any,
   propertyKey: string,
   descriptor: PropertyDescriptor
 ) {

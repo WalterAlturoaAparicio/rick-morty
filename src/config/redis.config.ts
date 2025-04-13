@@ -1,5 +1,5 @@
 import { createClient } from 'redis'
-import { env } from '../config/env'
+import { env } from './env.config'
 
 export const redisClient = createClient({
   url: `redis://${env.REDIS_HOST}:${env.REDIS_PORT}`
@@ -8,5 +8,8 @@ export const redisClient = createClient({
 redisClient.on('error', (err) => console.error('❌ Redis Error:', err))
 
 export const connectRedis = async () => {
-  if (!redisClient.isOpen) await redisClient.connect()
+  if (!redisClient.isOpen) {
+    await redisClient.connect()
+    console.log('📦 Redis connected')
+  }
 }

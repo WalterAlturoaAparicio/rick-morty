@@ -6,7 +6,7 @@
   "private": "true",
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "dev": "tsx watch src/app.ts",
+    "dev": "tsx watch src/main.ts",
     "test": "tsc -p tsconfig.spec.json && jest",
     "db:migrate": "sequelize-cli db:migrate",
     "migrate:undo": "sequelize-cli db:migrate:undo",
@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@graphql-tools/schema": "^10.0.23",
     "axios": "^1.8.4",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
@@ -28,13 +29,17 @@
     "redis": "^4.7.0",
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.7",
-    "sequelize-typescript": "^2.1.6"
+    "sequelize-typescript": "^2.1.6",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.14.0",
     "@types/node-cron": "^3.0.11",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "@types/validator": "^13.12.3",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",

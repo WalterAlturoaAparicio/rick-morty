@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { getCacheHit } from './request-context'
+import { getCacheHit } from './request-context.middleware'
 
 export const loggerMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const { method, originalUrl } = req

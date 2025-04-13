@@ -1,7 +1,7 @@
 // src/cron/character.cron.ts
 import cron from 'node-cron'
 import axios from 'axios'
-import { Character } from '../database/models/character.model'
+import { Character } from '../../database/models/character.model'
 
 interface APICharacter {
   id: number

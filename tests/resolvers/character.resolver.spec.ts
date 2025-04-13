@@ -1,9 +1,9 @@
-import { characterResolver } from '../../src/graphql/resolvers/character.resolver'
+import { characterResolver } from '../../src/character/graphql/character.resolver'
 import { Character } from '../../src/database/models/character.model'
-import { redisClient } from '../../src/config/redis'
+import { redisClient } from '../../src/config/redis.config'
 
 jest.mock('../../src/database/models/character.model.ts')
-jest.mock('../../src/config/redis.ts', () => ({
+jest.mock('../../src/config/redis.config.ts', () => ({
   redisClient: {
     get: jest.fn(),
     set: jest.fn()
@@ -11,11 +11,6 @@ jest.mock('../../src/config/redis.ts', () => ({
 }))
 
 describe('CharacterResolver.characters', () => {
-  const fakeContext = {
-    req: {},
-    res: {}
-  }
-
   const fakeCharacters = [
     {
       id: 1,
@@ -23,7 +18,7 @@ describe('CharacterResolver.characters', () => {
       status: 'Alive',
       species: 'Human',
       gender: 'Male',
-      originName: 'Earth'
+      origin: 'Earth'
     }
   ]
 
@@ -34,7 +29,7 @@ describe('CharacterResolver.characters', () => {
   it('should return characters from cache', async () => {
     ;(redisClient.get as jest.Mock).mockResolvedValueOnce(JSON.stringify(fakeCharacters))
 
-    const result = await characterResolver.characters({ filter: null }, fakeContext)
+    const result = await characterResolver.characters(null, { filter: {} })
 
     expect(redisClient.get).toHaveBeenCalled()
     expect(result).toEqual(fakeCharacters)
@@ -45,7 +40,7 @@ describe('CharacterResolver.characters', () => {
     ;(redisClient.get as jest.Mock).mockResolvedValueOnce(null)
     ;(Character.findAll as jest.Mock).mockResolvedValueOnce(fakeCharacters)
 
-    const result = await characterResolver.characters({ filter: null }, fakeContext)
+    const result = await characterResolver.characters(null, { filter: {} })
 
     expect(Character.findAll).toHaveBeenCalledWith({ where: {} })
     expect(redisClient.set).toHaveBeenCalled()
@@ -58,7 +53,7 @@ describe('CharacterResolver.characters', () => {
     ;(redisClient.get as jest.Mock).mockResolvedValueOnce(null)
     ;(Character.findAll as jest.Mock).mockResolvedValueOnce(fakeCharacters)
 
-    await characterResolver.characters({ filter }, fakeContext)
+    await characterResolver.characters(null, { filter })
 
     expect(Character.findAll).toHaveBeenCalled()
     expect(redisClient.set).toHaveBeenCalled()
