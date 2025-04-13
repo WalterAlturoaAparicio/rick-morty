@@ -9,6 +9,7 @@ import { renderGraphiQL } from 'graphql-yoga'
 import { loggerMiddleware } from './middlewares/logger.middleware'
 import { connectRedis } from './config/redis'
 import { contextMiddleware } from './middlewares/request-context'
+import { startCharacterCron } from './jobs/character.cron'
 
 const app = express()
 app.use(contextMiddleware)
@@ -43,3 +44,4 @@ sequelize
   .catch((err) => console.error('❌ DB connection failed:', err))
 
 connectRedis().then(() => console.log('📦 Redis connected'))
+//startCharacterCron()

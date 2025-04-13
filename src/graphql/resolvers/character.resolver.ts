@@ -1,7 +1,7 @@
 import { redisClient } from '../../config/redis'
 import { Character } from '../../database/models/character.model'
 import { Op } from 'sequelize'
-import { MeasureExecutionTime } from '../../utils/mesure-time'
+import { MeasureExecutionTime } from '../../decorators/mesure-time'
 import { setCacheHit } from '../../middlewares/request-context'
 
 class CharacterResolver {
