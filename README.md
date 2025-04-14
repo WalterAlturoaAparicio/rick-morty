@@ -1,5 +1,5 @@
 # 🚀 Rick & Morty GraphQL API
-[![Open Source](https://img.shields.io/badge/Open-Source-orange)]((https://github.com/WalterAlturoaAparicio/rick-morty))
+[![Open Source](https://img.shields.io/badge/Open-Source-orange)](https://github.com/WalterAlturoaAparicio/rick-morty)
 
 Una API GraphQL que expone personajes de Rick & Morty, con caché en Redis, base de datos en PostgreSQL, documentación Swagger y cronjob de actualización automática.  
 
