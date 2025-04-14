@@ -1,5 +1,5 @@
 # 🚀 Rick & Morty GraphQL API
-[![Open Source](https://img.shields.io/badge/Open-Source-orange)](https://github.com)
+[![Open Source](https://img.shields.io/badge/Open-Source-orange)]((https://github.com/WalterAlturoaAparicio/rick-morty))
 
 Una API GraphQL que expone personajes de Rick & Morty, con caché en Redis, base de datos en PostgreSQL, documentación Swagger y cronjob de actualización automática.  
 
@@ -57,8 +57,8 @@ REDIS_PORT=6379
 npm run dev
 ```
 > El servidor correrá en: 
-🔗 GraphQL Playground: http://localhost:3000/graphiql
-📊 Swagger: http://localhost:3000/api/docs
+> 🔗 GraphQL Playground: http://localhost:3000/graphiql
+> 📊 Swagger: http://localhost:3000/api/docs
 
 ### 5. 🧪 Testing
 ```bash
