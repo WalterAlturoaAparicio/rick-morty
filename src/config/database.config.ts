@@ -4,6 +4,7 @@ import { env } from './env.config'
 
 let sequelize: Sequelize
 
+//Solo se ejecuta una vez por instancia para evitar múltiples conexiones.
 export async function connectDatabase() {
   if (!sequelize) {
     sequelize = new Sequelize({

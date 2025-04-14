@@ -1,6 +1,10 @@
 import { AsyncLocalStorage } from 'async_hooks'
 import { Request, Response } from 'express'
 
+/**
+ * Mantiene el contexto durante el ciclo de vida de una petición.
+ * Se usa para `variables globales por request`
+ */
 const asyncLocalStorage = new AsyncLocalStorage<Map<string, any>>()
 
 export const contextMiddleware = (_req: Request, _res: Response, next: () => any) => {

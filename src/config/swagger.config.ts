@@ -1,5 +1,4 @@
 import swaggerJSDoc from 'swagger-jsdoc'
-import { Character } from '../database/models/character.model'
 
 export const swaggerSpec = swaggerJSDoc({
   definition: {
@@ -20,8 +19,17 @@ export const swaggerSpec = swaggerJSDoc({
         Character: {
           type: 'object',
           properties: {
-            ...Character
-          }
+            id: { type: 'integer', example: 1 },
+            name: { type: 'string', example: 'Rick Sanchez' },
+            status: { type: 'string', example: 'Alive' },
+            species: { type: 'string', example: 'Human' },
+            gender: { type: 'string', example: 'Male' },
+            origin: { type: 'string', example: 'Earth' },
+            image: { type: 'string', example: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg' },
+            createdAt: { type: 'string', format: 'date-time' },
+            updatedAt: { type: 'string', format: 'date-time' }
+          },
+          required: ['name', 'status', 'species', 'gender', 'origin', 'image']
         }
       }
     }

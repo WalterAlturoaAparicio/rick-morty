@@ -9,6 +9,7 @@ export const schema = makeExecutableSchema({
   typeDefs,
   resolvers: {
     Query: {
+        // Es necesario el `bind` para preservar el contexto (`this`) de la instancia `characterResolver`.
         characters: characterResolver.characters.bind(characterResolver)
     }
   }
